@@ -10,9 +10,9 @@ class UserBO
 {
     public function __construct(private UserDAO $userDAO) {}
 
-    public function getAllUsers()
+    public function getAllUsers($request)
     {
-        return $this->userDAO->all();
+        return $this->userDAO->all($request);
     }
 
     public function createUser(array $data)

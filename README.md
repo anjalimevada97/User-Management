@@ -62,6 +62,18 @@ Update the `.env` file with your database credentials:
 ### 5️⃣ Run Database Migrations
 * php artisan migrate
 
+### Install API Authentication (Laravel Passport)
+
+* php artisan install:api --passport
+* php artisan passport:client --personal
+
+### Clear Cache
+
+- php artisan cache:clear
+- php artisan config:clear
+- php artisan route:clear
+- php artisan view:clear
+
 ---
 
 ### 6️⃣ Start Development Servers
@@ -101,10 +113,15 @@ User-Management/
 
 ## 🧪 Useful Commands
 
-- php artisan migrate:fresh --seed
-- php artisan cache:clear
-- php artisan config:clear
-- php artisan route:list
+- php artisan migrate:fresh --seed      # Reset and seed database
+- php artisan cache:clear                # Clear application cache
+- php artisan config:clear               # Clear config cache
+- php artisan route:clear                # Clear route cache
+- php artisan view:clear                 # Clear view cache
+- php artisan route:list                 # List all routes
+- php artisan passport:install           # Install Laravel Passport
+- php artisan passport:client --personal # Create personal access client
+
 
 ---
 

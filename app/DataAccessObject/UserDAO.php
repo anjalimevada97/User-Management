@@ -8,9 +8,11 @@ use Illuminate\Validation\ValidationException;
 
 class UserDAO
 {
-    public function all()
+    public function all($request)
     {
-        $users = User::latest()->paginate(10);
+        $users = User::applyFilters($request->all())
+            ->latest()
+            ->paginate(10);
 
         return UserResource::collection($users);
     }

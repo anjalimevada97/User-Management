@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Builders\UserBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -51,4 +52,9 @@ class User extends Authenticatable
 
     public const STATUS_ACTIVE = 'Active';
     public const STATUS_DISABLED = 'Disabled';
+
+    public function newEloquentBuilder($builder)
+    {
+        return new UserBuilder($builder);
+    }
 }

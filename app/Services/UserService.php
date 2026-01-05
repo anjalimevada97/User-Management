@@ -12,10 +12,10 @@ class UserService
 
     public function __construct(private UserBO $userBO) {}
 
-    public function getAll()
+    public function getAll($request)
     {
-        return Cache::tags(self::TAG)->remember('all', self::TTL, function () {
-            return $this->userBO->getAllUsers();
+        return Cache::tags(self::TAG)->remember('all', self::TTL, function () use ($request) {
+            return $this->userBO->getAllUsers($request);
         });
     }
 
