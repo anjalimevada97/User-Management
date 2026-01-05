@@ -42,10 +42,6 @@ class UserBuilder extends Builder
     {
         $filters = collect($filters);
 
-        $user = request()->user();
-
-        $this->checkWhereHasUserAccess($user);
-
         if ($filters->get('search')) {
             $this->whereSearch($filters->get('search'));
         }
