@@ -86,22 +86,6 @@ The application will be available at:
 
 ---
 
-## 📂 Project Structure (Overview)
-
-User-Management/
-├── app/
-├── database/
-│   └── migrations/
-├── resources/
-├── routes/
-├── public/
-├── .env.example
-├── composer.json
-├── package.json
-└── README.md
-
----
-
 ## ✅ Requirements
 
 * PHP >= 8.2
