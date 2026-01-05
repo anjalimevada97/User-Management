@@ -14,12 +14,12 @@ class UserService
 
     public function getAll($request)
     {
-        // return Cache::tags(self::TAG)->remember('all', self::TTL, function () use ($request) {
-        //     return $this->userBO->getAllUsers($request);
-        // });
+        $filters = $request->all();
+        $cacheKey = 'users:' . md5(json_encode($filters));
 
-        // Disabled caching for listing users to ensure real-time data with filters/pagination
-        return $this->userBO->getAllUsers($request);
+        return Cache::tags(self::TAG)->remember($cacheKey, self::TTL, function () use ($request) {
+            return $this->userBO->getAllUsers($request);
+        });
     }
 
     public function create(array $data)
